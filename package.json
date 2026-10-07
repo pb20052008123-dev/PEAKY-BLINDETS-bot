@@ -1,0 +1,21 @@
+{
+  "name": "PEAKY BLINDERS bot",
+  "version": "1.0.0",
+  "description": "PEAKY BLINDERS Crew WhatsApp Bot 鈥� a powerful, fun and intelligent bot packed with extra features, AI capabilities and a sleek futuristic design",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node test.js",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "whatsapp",
+    "bot",
+    "automation",
+    "ai",
+    "digix",
+    "crew"
+  ],
+  "dependencies": {
+    "baileys": "PEAKY BLINDERS",
+    "axios": "^1.7.7",
