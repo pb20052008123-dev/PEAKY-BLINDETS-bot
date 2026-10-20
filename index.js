@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Servir la page HTML statique
+// Servir la page HTML statique depuis le dossier public
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Route pour demander un code de liaison (Pairing Code) via le site web
@@ -22,7 +22,7 @@ app.post('/connect', async (req, res) => {
 
     try {
         const sessionDir = path.join(__dirname, 'sessions');
-        if (!fs.existsSync(sessionDir)){
+        if (!fs.existsSync(sessionDir)) {
             fs.mkdirSync(sessionDir);
         }
 
@@ -51,10 +51,11 @@ app.post('/connect', async (req, res) => {
 
     } catch (error) {
         console.error("Erreur lors de la génération du code :", error);
-        res.status(500).json({ success: false, message: "Erreur interne du serveur." });
+        return res.status(500).json({ success: false, message: "Erreur interne du serveur." });
     }
 });
 
+// Démarrage du serveur web
 app.listen(PORT, () => {
-    console.log(Serveur web démarré sur le port ${PORT});
+    console.log("Serveur web démarré sur le port " + PORT);
 });
